@@ -14,13 +14,13 @@ const vm = Vue.createApp({
       this.rotateY = 0;
       this.rotateZ = 0;
     },
-    copyToClipboard() {
-      navigator.clipboard.writeText(JSON.stringify(this.rotateBox));
+    async copyToClipboard() {
+      await navigator.clipboard.writeText(JSON.stringify(this.rotateBox));
+      alert("CSS Copied to Clipboard");
     },
   },
   computed: {
     rotateBox() {
-      console.log("rotateBox called");
       return {
         transform: `
             perspective(${this.perspective}px)
